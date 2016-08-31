@@ -15,6 +15,7 @@ angular
                 {
                     "title"       : taskData.title,
                     "description" : taskData.description,
+                    "priority"    : taskData.priority,
                     "createdAt"   : new Date().toString(),
                     "expired"     : false,
                     "completed"   : false
