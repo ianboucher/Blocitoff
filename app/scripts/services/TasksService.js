@@ -16,8 +16,28 @@ angular
                     "title"       : taskData.title,
                     "description" : taskData.description,
                     "createdAt"   : new Date().toString(),
-                    "expired"     : false
+                    "expired"     : false,
+                    "completed"   : false
                 });
+            };
+
+            TasksService.checkExpired = function (task)
+            {
+                var creationDate    = new Date(task.createdAt),
+                    currentDate     = new Date(),
+                    milisecondsDiff = currentDate - creationDate,
+                    daysDiff        = milisecondsDiff / 604800000; // 7days in miliseconds
+                    // minutesDiff     = milisecondsDiff/60000;
+                    if (daysDiff > 7)
+                    {
+                        task.expired = false;
+                        list.$save(task)
+                    }
+            }
+
+            TasksService.toggleComplete = function (task)
+            {
+                list.$save(task);
             };
 
             TasksService.list = list;

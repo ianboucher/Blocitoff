@@ -8,18 +8,18 @@ angular
             return {
                 link: function (scope, element, attributes)
                 {
-                    var creationDate    = new Date(scope.item.createdAt),
-                        currentDate     = new Date(),
-                        milisecondsDiff = currentDate - creationDate,
-                        daysDiff        = milisecondsDiff / 604800000; // 7days in miliseconds
-                        // minutesDiff     = milisecondsDiff/60000;
+                    TasksService.checkExpired(scope.item)
 
-                        if (daysDiff > 7)
+                        if (scope.item.expired)
                         {
-                            element[0].hidden  = true;
-                            scope.item.expired = true;
-                            TasksService.list.$save(scope.item)
+                            element[0].hidden = true;
                         }
+
+                        // if (scope.item.completed)
+                        // {
+                        //     To-do: consider using 'strikethrough' for completed
+                        //     tasks rather than hiding them...
+                        // }
                 }
             };
         }
