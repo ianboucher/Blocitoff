@@ -5,7 +5,7 @@
     <input type='button' class='btn btn-default' ng-click='tasks.tasksService.addTask(taskData)' value='Add Task'>
 </form>
 <ul>
-    <li ng-repeat="item in tasks.tasksService.list" ng-init="tasks.tasksService.expireTask(item)" ng-hide="item.expired">
+    <li ng-repeat="item in tasks.tasksService.list" hide-expired="true">
         <p>{{item.title}}</p>
     </li>
 </ul>
