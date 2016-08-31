@@ -29,5 +29,14 @@ angular
                     controller  : "TasksCtrl as tasks",
                     templateUrl : "/templates/tasks.html"
                 }
+            )
+            .state
+            (
+                "history",
+                {
+                    url         : "/history",
+                    controller  : "TasksCtrl as tasks",
+                    templateUrl : "/templates/history.html"
+                }
             );
     });

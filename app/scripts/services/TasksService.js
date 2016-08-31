@@ -21,19 +21,29 @@ angular
                 });
             };
 
-            TasksService.checkExpired = function (task)
+            // Is calling on entire list in one hit an improvement?
+
+            TasksService.checkExpired = function ()
             {
-                var creationDate    = new Date(task.createdAt),
-                    currentDate     = new Date(),
-                    milisecondsDiff = currentDate - creationDate,
-                    daysDiff        = milisecondsDiff / 604800000; // 7days in miliseconds
-                    // minutesDiff     = milisecondsDiff/60000;
-                    if (daysDiff > 7)
+                var currentDate = new Date();
+
+                list.$loaded().then(function()
+                {
+                    angular.forEach(list, function(task)
                     {
-                        task.expired = false;
-                        list.$save(task)
-                    }
-            }
+                        var creationDate    = new Date(task.createdAt),
+                            milisecondsDiff = currentDate - creationDate,
+                            daysDiff        = milisecondsDiff / 604800000; // 7days in miliseconds
+
+                            if (daysDiff > 7)
+                            {
+                                task.expired = true;
+                                list.$save(task)
+                            }
+                    });
+                });
+            };
+
 
             TasksService.toggleComplete = function (task)
             {

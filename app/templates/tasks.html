@@ -1,12 +1,12 @@
 <h1>Task List</h1>
 <form name="tasks.taskInput">
-    <input type="text" ng-model="taskData.title" placeholder="Enter a task"/>
+    <input type="text" ng-model="taskData.title"       placeholder="Enter a task"/>
     <input type="text" ng-model="taskData.description" placeholder="Enter a description"/>
-    <input type='button' class='btn btn-default' ng-click='tasks.tasksService.addTask(taskData)' value='Add Task'>
+    <input type='button' class='btn btn-default' ng-click='tasks.addTask(taskData)' value='Add Task'>
 </form>
 <ul>
-    <li ng-repeat="item in tasks.tasksService.list" hide-expired="true" ng-hide="item.completed">
-        <p>{{item.title}}</p>
-        <input type="checkbox" ng-model="item.completed" ng-change="tasks.tasksService.toggleComplete(item)"></input>
+    <li ng-repeat="item in tasks.list" ng-hide="item.completed || item.expired">
+        <span>{{ item.title }}</span>
+        <input type="checkbox" ng-model="item.completed" ng-change="tasks.toggleComplete(item)"></input>
     </li>
 </ul>

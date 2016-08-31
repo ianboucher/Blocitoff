@@ -14,7 +14,8 @@
             <img src="" alt="blocitoff logo" class="logo">
         </a>
         <div class="links-container">
-            <a ui-sref="tasks" class="navbar-link">Tasks</a>
+            <a ui-sref="tasks"   class="navbar-link">Tasks</a>
+            <a ui-sref="history" class="navbar-link">History</a>
             <!-- <a ng-hide="signedIn()" ui-sref="login" class="navbar-link">Log In</a>
             <a ng-hide="signedIn()" ui-sref="register" class="navbar-link">Register</a>
             <a ng-show="signedIn()" ui-sref="/" class="navbar-link">{{ user.username }}</a>
@@ -43,7 +44,6 @@
     <script src="/scripts/controllers/LandingCtrl.js"></script>
     <script src="/scripts/controllers/TasksCtrl.js"></script>
     <script src="/scripts/services/TasksService.js"></script>
-    <script src="/scripts/directives/hideExpired.js"></script>
 
 </body>
 </html>
