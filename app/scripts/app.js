@@ -1,7 +1,7 @@
-"use strict"
+"use strict";
 
 angular
-    .module("blocitoff", ["firebase", "ui.router"])
+    .module("blocitoff", ["firebase", "ui.router", "ui.bootstrap"])
     .config(function($stateProvider, $locationProvider)
     {
         $locationProvider
@@ -26,17 +26,17 @@ angular
                 "tasks",
                 {
                     url         : "/tasks",
-                    controller  : "TasksCtrl as tasks",
+                    controller  : "CurrentTasksCtrl as tasks",
                     templateUrl : "/templates/tasks.html"
                 }
             )
             .state
             (
-                "history",
+                "archive",
                 {
-                    url         : "/history",
-                    controller  : "TasksCtrl as tasks",
-                    templateUrl : "/templates/history.html"
+                    url         : "/archive",
+                    controller  : "ArchiveTasksCtrl as archive",
+                    templateUrl : "/templates/archive.html"
                 }
             );
     });

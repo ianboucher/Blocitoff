@@ -1,0 +1,13 @@
+<h1>Task History</h1>
+
+<table class="task-list">
+    <tr>
+        <th>Title</th><th>Description</th><th>Priority</th><th>Complete?</th>
+    </tr>
+    <tr class="task-item" ng-repeat="item in archive.list | orderBy: 'createdAt' " ng-show="item.completed || item.expired">
+        <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.priority | formatPriority }}</td>
+        <td><input type="checkbox" ng-model="item.completed" ng-change="archive.toggleComplete(item)"></input></td>
+    </tr>
+</table>

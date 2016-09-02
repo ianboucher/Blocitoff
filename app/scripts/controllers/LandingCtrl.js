@@ -1,8 +1,9 @@
-"use strict"
+"use strict";
 
 angular
     .module("blocitoff")
-    .controller("LandingCtrl", function()
-    {
-        this.heroTitle = "Bloc It Off!"
-    });
+    .controller("LandingCtrl",
+        function LandingCtrl()
+        {
+            this.heroTitle = "Bloc It Off!";
+        });

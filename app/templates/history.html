@@ -1,8 +1,0 @@
-<h1>Task History</h1>
-
-<ul>
-    <li ng-repeat="item in tasks.list | orderBy: 'priority' " ng-show="item.expired || item.completed">
-        <p>{{ item.title }}</p>
-        <input type="checkbox" ng-model="item.completed" ng-change="tasks.toggleComplete(item)"></input>
-    </li>
-</ul>
